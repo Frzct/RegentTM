@@ -4,7 +4,7 @@
   "description": "Our duke experiments on us daily... Send help... We are forced to code this thing for him...",
   "main": "index.ts",
   "scripts": {
-    "test": "!test"
+    "test": "index.ts"
   },
   "repository": {
     "type": "git",
@@ -21,5 +21,9 @@
   "homepage": "https://github.com/Frzct/Ms.-Vertin-Reverse-1999-is-cute#readme",
   "dependencies": {
     "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.5.5"
   }
 }
