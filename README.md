@@ -1,4 +1,4 @@
-﻿# Ms.-Vertin-Reverse-1999-is-cute.
+﻿# Ms. Vertin from Reverse: 1999 is cute.
 
 Sauces:
 pixiv.net/en/artworks/122417089 - Miss Vertin
