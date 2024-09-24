@@ -1,6 +1,14 @@
-﻿# Ms. Vertin from Reverse: 1999 is cute.
+﻿# RegentTM
 
-Sauces:
+RegentTM GitHub project, but unfortunately will not be publicly available because we will be persecuted
+
+We love Miss Vertin from Reverse: 1999!!!!!!
+
+## The Actual README file:
+- [Application Description](About.md). Read this instead of.... whatever the below section says.
+
+## Sauces
+
 pixiv.net/en/artworks/122417089 - Miss Vertin
 
 pixiv.net/en/artworks/120654593 - Miss Vertin
