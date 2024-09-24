@@ -1,13 +1,11 @@
-import express from "express"
-import Path from "path"
+const express = import("express")
 
 const Application = express()
-const PublicPath = Path.join("./public")
 
-express.static(PublicPath)
+Application.use(express.static("public"))
 
 Application.get("/", (req, res) => {
-    res.send("./public/landing/index.html")
+    res.send("hello")
 })
 
 Application.listen("3000", () => {
