@@ -5,9 +5,24 @@
 
     </head>
 
-    <body>
-        <h1>RegentTM</h1>
+    <link type="text/css" rel="stylesheet" href="/index.css">
 
-        <p>You learn i guess but you learn under mr 1984</p>
+    <body>
+        
+        <div class="container">
+            <h1>RegentTM</h1>
+        </div>
+
+        <script>
+            
+            let OutOfDocument = false
+            
+            console.log("Mein Kampft!")
+            window.addEventListener("visibilitychange", (event) => {
+                OutOfDocument = !OutOfDocument
+
+                console.log(OutOfDocument? "This guy just hopped off, probably jorkin it": "Gained attention span, hopped back on")
+            })
+        </script>
     </body>
 </html>
