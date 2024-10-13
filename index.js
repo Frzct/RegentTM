@@ -8,6 +8,7 @@ const quick_join = _mainPath.join
 
 var Public = quick_join(__dirname, "public") //... so you gotta merge it like this.
 
+console.log(Public)
 //
 var List = {
     client: quick_join( Public, "client" ),
@@ -18,8 +19,15 @@ var List = {
 
 Application.use(Express.static(Public))
 
-Application.get("/", (req, res) => {
-    res.sendFile( quick_join( List.landing, "index.html") )
+// Here's the command thingies!
+const GET_LOCATIONS = {
+    "/": (req, res) => {
+        res.sendFile( quick_join( List.landing, "index.html") )
+    },
+}
+
+Object.keys(GET_LOCATIONS).forEach((Key) => {
+    Application.get(Key, GET_LOCATIONS[Key])
 })
 
 Application.listen("3000", () => {

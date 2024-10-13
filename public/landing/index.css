@@ -2,6 +2,9 @@
     background-image: "https://static.wikia.nocookie.net/villainous-benchmark/images/1/1d/LordRegent.png/revision/latest?cb=20230906224100";
     width: 100%;
     height: fit-content;
+    display: grid;
     justify-content: center;
     align-items: center;
+
+    position: absolute
 }
