@@ -1,14 +1,20 @@
 const Express = require('express')
+const { access } = require('fs')
+const _mainPath = require("path")
 const Application = Express()
 
 //
-
-var _mainPath = require("path") // Note: Running require on "path" will not return your __dirname
 const quick_join = _mainPath.join
 
 var Public = quick_join(__dirname, "public") //... so you gotta merge it like this.
 
-console.log(Public)
+function accessFileFromPath(startPath, pathHere){
+
+    return quick_join(
+                startPath, ...(pathHere || "index.html").split("/")
+            ) // I have no fucking idea how, but removing the index.html under public helped solve the redirection issue
+}
+
 //
 var List = {
     client: quick_join( Public, "client" ),
@@ -21,8 +27,9 @@ Application.use(Express.static(Public))
 
 // Here's the command thingies!
 const GET_LOCATIONS = {
+    
     "/": (req, res) => {
-        res.sendFile( quick_join( List.landing, "index.html") )
+        res.sendFile( accessFileFromPath( List.landing ) )
     },
 }
 
@@ -32,4 +39,5 @@ Object.keys(GET_LOCATIONS).forEach((Key) => {
 
 Application.listen("3000", () => {
     console.log("Running i guess....")
-})
+    console.log(accessFileFromPath( List.landing ))
+}) // This is your temporary debug thing
