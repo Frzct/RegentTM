@@ -1,3 +1,4 @@
+
 var OutOfDocument = false
 var id_save_documents = {
     "button-1": ["addEventListener", "click", () => {
@@ -6,6 +7,7 @@ var id_save_documents = {
     }],
 
 }
+var hopOffTime = 0
 
 document.getElementById("button-1").addEventListener("onclick", (ev) => {
     console.log("communism")
@@ -14,13 +16,18 @@ document.getElementById("button-1").addEventListener("onclick", (ev) => {
 
 Object.keys(id_save_documents).forEach((key) => {
     let id_save = id_save_documents[key]
-    console.log("cool id save")
     document.getElementById(key)[id_save[0]](id_save[1], id_save[2])
 })
 
 window.addEventListener("visibilitychange", (event) => {
     OutOfDocument = !OutOfDocument
 
-    console.log(OutOfDocument? "This guy just hopped off, probably jorkin it": "Gained attention span, hopped back on")
+    if (!OutOfDocument){
+        var diff = Date.now() - hopOffTime
+        
+        alert(`Welcome back, user. you have been offline for ${Math.floor(diff/60000)} maniutes and ${Math.floor(diff/1000)} sekonds!!!!`)
+    } else {
+        hopOffTime = Date.now()
+    }
 })
 
