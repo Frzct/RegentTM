@@ -1,26 +1,21 @@
 ﻿# RegentTM
 
-RegentTM GitHub project, but unfortunately will not be publicly available because we will be persecuted
+We have an extension and a website.
 
-We love Miss Vertin from Reverse: 1999!!!!!!
+To run the website, type in your terminal:
 
-## The Actual README file:
-- [Application Description](About.md). Read this instead of.... whatever the below section says.
+- npm install --global yarn (Only for if you have npm, else install it by following:
 
-## Sauces
+https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
-pixiv.net/en/artworks/122417089 - Miss Vertin
+- Try: yarn --version (to check the version of Yarn, see if you have it right)
 
-pixiv.net/en/artworks/120654593 - Miss Vertin
+We already used "yarn init" on this project, so all you have to do now is type in your terminal:
 
-pixiv.net/en/artworks/119976895 - Miss Vertin Supremacy
+- yarn start
 
-pixiv.net/en/artworks/118588112 - Please step on me ms Vertin
+it should run the project.
 
-pixiv.net/en/artworks/117781997 - Forget wife, im getting a super marriage.
+//////////////////////////////////////////////////////////////////////////////////
 
-i.redd.it/duke-erisia-is-an-impossible-boss-fight-and-everyone-who-v0-y6gapmjhye3c1.png?width=137&format=png&auto=webp&s=230983133fe9cb456da7e00b485f2d706cd9fe78 - Our boss told us to add this.
-
-
-For Liiu: Download Yarn by following the instructions on the public document, and then run "yarn start"
-You don't need to set-up yarn right now, because in this project it's already set up
+## 
