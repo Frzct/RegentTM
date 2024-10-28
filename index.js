@@ -1,9 +1,11 @@
 const Express = require('express')
-const { access } = require('fs')
+const gongoose = require("mongoose")
 const _mainPath = require("path")
 const Application = Express()
 
 //
+
+
 const quick_join = _mainPath.join
 
 var Public = quick_join(__dirname, "public") //... so you gotta merge it like this.
@@ -20,6 +22,17 @@ var List = {
     client: quick_join( Public, "client" ),
     landing: quick_join( Public, "landing" ),
 }
+var possible_req_calls = {
+    "test_placeholder": [
+        {
+            "question": "Who am I?",
+            "answer": {
+                "type": "multiple_choice",
+                "extra_args": {},
+            }
+        }
+    ]
+}
 
 //
 
@@ -30,7 +43,15 @@ const GET_LOCATIONS = {
     
     "/": (req, res) => {
         res.sendFile( accessFileFromPath( List.landing ) )
+        
     },
+
+    "/request-call/:calltarget": (req, res) => {
+
+        let params = req.params.calltarget
+
+
+    }
 }
 
 Object.keys(GET_LOCATIONS).forEach((Key) => {
