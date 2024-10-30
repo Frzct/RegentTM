@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Website Tracker</title>
+  <style>
+    body { font-family: Arial, sans-serif; width: 200px; }
+    #inputField, #saveButton { width: 100%; margin-top: 10px; }
+    #trackedWebsite, #timerDisplay { margin-top: 15px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h3>Track Website</h3>
+  <input type="text" id="inputField" placeholder="Enter website URL" />
+  <button id="saveButton">Save</button>
+
+  <div id="trackedWebsite">Tracking: <span id="websiteName">None</span></div>
+  <div id="timerDisplay">Time Spent: <span id="timeSpent">0</span> seconds</div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
