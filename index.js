@@ -14,7 +14,7 @@ function accessFileFromPath(startPath, pathHere){
 
     return quick_join(
                 startPath, ...(pathHere || "index.html").split("/")
-            ) // I have no fucking idea how, but removing the index.html under public helped solve the redirection issue
+            ) // I have no idea how, but removing the index.html under public helped solve the redirection issue
 }
 
 //
