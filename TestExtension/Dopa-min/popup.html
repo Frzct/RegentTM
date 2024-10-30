@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Website Tracker</title>
+  <style>
+    body { font-family: Arial, sans-serif; width: 250px; }
+    #inputField, #addButton { width: 100%; margin-top: 10px; }
+    .website-item { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+    .time, .remove-button { margin-left: 5px; font-size: 0.9em; }
+    .remove-button { color: red; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h3>Track Websites</h3>
+  <input type="text" id="inputField" placeholder="Enter website URL" />
+  <button id="addButton">Add Website</button>
+  
+  <div id="websiteList"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
+  

@@ -18,4 +18,11 @@ it should run the project.
 
 //////////////////////////////////////////////////////////////////////////////////
 
+To run the extension, go to TestExtension, download Dopa-min file and its content
+
+Go to Google, in the three dots menu on the top right corner, open the extension menu
+
+Turn on developer mode in the top right corner
+
+Choose Load Unpacked, upload the Dopa-min file (and its content)
 ## 
