@@ -33,26 +33,27 @@ chrome.tabs.onActivated.addListener(async (activeInfo) => { // Used for when a t
 });
 
 function startTimer(website, tabId) {
-  if (timers[website]) { return }// If it finds the website in the timer, it will stop the execution of the following statements.
+  if (!timers[website]) {// If it finds the website in the timer, it will stop the execution of the following statements.
     timers[website] = setInterval(() => { // Creates a new interval, activating every 1000 milliseconds, or 1 second.
       chrome.storage.local.get("trackedWebsites", (data) => { // Gets "trackedWebsites" in the local storage.
-        const trackedWebsites = data.trackedWebsites || {};
-        if (trackedWebsites[website] === undefined) { return }
+      const trackedWebsites = data.trackedWebsites || {};
+        if (trackedWebsites[website] !== undefined) {
 
-        trackedWebsites[website]++; // Adds time to the tracked website.
-        chrome.storage.local.set({ trackedWebsites });
+          trackedWebsites[website]++; // Adds time to the tracked website.
+          chrome.storage.local.set({ trackedWebsites });
 
-          // Check if 30 minutes have passed (1800 seconds)
-        if (trackedWebsites[website] % 1800 === 0) {
-            // Send message to content script to display overlay
-          chrome.tabs.sendMessage(tabId, { type: "showOverlay" });
+            // Check if 30 minutes have passed (1800 seconds)
+          if (trackedWebsites[website] % 1800 === 0) {
+              // Send message to content script to display overlay
+            chrome.tabs.sendMessage(tabId, { type: "showOverlay" });
+          }
+
+            // Notify popup to update displayed times
+          chrome.runtime.sendMessage({ type: "updateTimes" });
         }
-
-          // Notify popup to update displayed times
-        chrome.runtime.sendMessage({ type: "updateTimes" });
-        
-    });
-  }, 1000);
+      });
+    }, 1000);
+  }
 }
 
 function stopAllTimers() {
