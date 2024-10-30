@@ -34,12 +34,7 @@ const GET_LOCATIONS = {
         
     },
 
-    "/request-call/:calltarget": (req, res) => {
-
-        let params = req.params.calltarget
-
-
-    }
+    // we were planning to add more, but this was all we could make
 }
 
 Object.keys(GET_LOCATIONS).forEach((Key) => {
