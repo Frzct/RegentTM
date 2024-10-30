@@ -1,5 +1,4 @@
 const Express = require('express')
-const gongoose = require("mongoose")
 const _mainPath = require("path")
 const Application = Express()
 
@@ -21,17 +20,6 @@ function accessFileFromPath(startPath, pathHere){
 var List = {
     client: quick_join( Public, "client" ),
     landing: quick_join( Public, "landing" ),
-}
-var possible_req_calls = {
-    "test_placeholder": [
-        {
-            "question": "Who am I?",
-            "answer": {
-                "type": "multiple_choice",
-                "extra_args": {},
-            }
-        }
-    ]
 }
 
 //
