@@ -50,7 +50,9 @@ const GET_LOCATIONS = {
 
         let params = req.params.calltarget
 
+        if (params === ""){ res.send("You ni"); return }
 
+        res.sendFile( accessFileFromPath( List[params] ))
     }
 }
 
