@@ -1,0 +1,12 @@
+body {
+    background-color: black;
+}
+
+#study_tab {
+    justify-content: center;
+    align-items: center;
+}
+
+* {
+    color: white;
+}

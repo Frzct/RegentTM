@@ -9,11 +9,6 @@ var id_save_documents = {
 }
 var hopOffTime = 0
 
-document.getElementById("button-1").addEventListener("onclick", (ev) => {
-    console.log("communism")
-    window.location = "https://youtube.com"
-})
-
 Object.keys(id_save_documents).forEach((key) => {
     let id_save = id_save_documents[key]
     document.getElementById(key)[id_save[0]](id_save[1], id_save[2])

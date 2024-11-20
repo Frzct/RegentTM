@@ -1,5 +1,4 @@
 const Express = require('express')
-const gongoose = require("mongoose")
 const _mainPath = require("path")
 const Application = Express()
 
@@ -22,17 +21,6 @@ var List = {
     client: quick_join( Public, "client" ),
     landing: quick_join( Public, "landing" ),
 }
-var possible_req_calls = {
-    "test_placeholder": [
-        {
-            "question": "Who am I?",
-            "answer": {
-                "type": "multiple_choice",
-                "extra_args": {},
-            }
-        }
-    ]
-}
 
 //
 
@@ -50,7 +38,7 @@ const GET_LOCATIONS = {
 
         let params = req.params.calltarget
 
-        if (params === ""){ res.send("You ni"); return }
+        if (params === ""){ res.send("Empty parameters."); return }
 
         res.sendFile( accessFileFromPath( List[params] ))
     }
@@ -61,6 +49,5 @@ Object.keys(GET_LOCATIONS).forEach((Key) => {
 })
 
 Application.listen("3000", () => {
-    console.log("Running i guess....")
-    console.log(accessFileFromPath( List.landing ))
+    console.log("RegentTM up and running")
 }) // This is your temporary debug thing
