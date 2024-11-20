@@ -1,10 +1,12 @@
 chrome.runtime.onMessage.addListener((message) => {
   if (message.type === "showOverlay") {
-    displayOverlay();
+    displayOverlay("Do you really, really wanna access this website?", 5, "Yes!");
+  } else if (message.type === "timeLimitEnd") {
+    displayOverlay("You've reached the end of your website usage", 9e9, "The end is the end.");
   }
 });
 
-function displayOverlay() {
+function displayOverlay(text, button_disappear_time, prompt) {
   // Remove any existing overlay
   const existingOverlay = document.getElementById("trackingOverlay");
   if (existingOverlay) {
@@ -36,15 +38,15 @@ function displayOverlay() {
 
   // Create content inside rectangle
   const message = document.createElement("h2");
-  message.innerText = `Do you really need to access this website?`;
+  message.innerText = `${text}`;
   message.style.color = "black";
   message.style.marginBottom = "20px";
   rectangle.appendChild(message);
 
   // Countdown close button for "Yes, I really need it"
-  let countdown = 5;
+  let countdown = button_disappear_time || 5;
   const closeButton = document.createElement("button");
-  closeButton.innerText = `Yes, I really need it (${countdown})`;
+  closeButton.innerText = `${prompt} (${countdown})`;
   closeButton.style.padding = "10px 20px";
   closeButton.style.fontSize = "16px";
   closeButton.style.cursor = "not-allowed";
@@ -54,11 +56,11 @@ function displayOverlay() {
   // Countdown interval for enabling close button
   const countdownInterval = setInterval(() => {
     countdown--;
-    closeButton.innerText = `Yes, I really need it (${countdown})`;
+    closeButton.innerText = `${prompt} (${countdown})`;
 
     if (countdown === 0) {
       clearInterval(countdownInterval);
-      closeButton.innerText = "Yes, I really need it";
+      closeButton.innerText = `${prompt}`;
       closeButton.disabled = false;
       closeButton.style.cursor = "pointer";
     }

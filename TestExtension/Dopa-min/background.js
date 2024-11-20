@@ -48,6 +48,12 @@ function startTimer(website, tabId) {
           trackedWebsites[website]++; // Adds time to the tracked website.
           chrome.storage.local.set({ trackedWebsites });
 
+          if (trackedWebsites[website] > 10){
+            chrome.tabs.sendMessage(tabId, { type: "timeLimitEnd" })
+
+            return
+          }
+
           // Notify popup to update displayed times
           chrome.runtime.sendMessage({ type: "updateTimes" });
         }
