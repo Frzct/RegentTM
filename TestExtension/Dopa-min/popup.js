@@ -3,7 +3,9 @@ document.getElementById("addButton").addEventListener("click", () => {
   if (website) {
     chrome.storage.local.get({ trackedWebsites: {} }, (data) => {
       const trackedWebsites = data.trackedWebsites;
-      trackedWebsites[website] = 0; // Initialize with zero time spent
+      if (!trackedWebsites[website]) {
+        trackedWebsites[website] = 0; // Initialize time to zero
+      }
       chrome.storage.local.set({ trackedWebsites }, () => {
         document.getElementById("inputField").value = ""; // Clear input
         displayWebsites();
@@ -22,7 +24,7 @@ function displayWebsites() {
       item.className = "website-item";
       
       const name = document.createElement("span");
-      name.textContent = website;
+      name.textContent = formatDisplayName(website); // Display formatted name
       
       const time = document.createElement("span");
       time.className = "time";
@@ -45,9 +47,18 @@ function displayWebsites() {
 function removeWebsite(website) {
   chrome.storage.local.get("trackedWebsites", (data) => {
     const trackedWebsites = data.trackedWebsites;
-    delete trackedWebsites[website]; // Remove website from the list
-    chrome.storage.local.set({ trackedWebsites }, displayWebsites); // Update storage and display
+    delete trackedWebsites[website]; // Remove only when explicitly requested
+    chrome.storage.local.set({ trackedWebsites }, displayWebsites);
   });
+}
+
+function formatDisplayName(url) {
+  try {
+    const domain = new URL(url).hostname.replace("www.", "");
+    return domain.charAt(0).toUpperCase() + domain.slice(1);
+  } catch (error) {
+    return url;
+  }
 }
 
 // Format time as HH:MM:SS
@@ -58,10 +69,10 @@ function formatTime(seconds) {
   return `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
 }
 
-// Update the display on popup load
+// Update display on popup load
 displayWebsites();
 
-// Listen for updates from background script to refresh times
+// Listen for updates from background script
 chrome.runtime.onMessage.addListener((message) => {
   if (message.type === "updateTimes") {
     displayWebsites();

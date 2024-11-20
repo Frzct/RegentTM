@@ -3,21 +3,107 @@
 <head>
   <title>Website Tracker</title>
   <style>
-    body { font-family: Arial, sans-serif; width: 250px; }
-    #inputField, #addButton { width: 100%; margin-top: 10px; }
-    .website-item { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
-    .time, .remove-button { margin-left: 5px; font-size: 0.9em; }
-    .remove-button { color: red; cursor: pointer; }
+    /* Dark theme styling */
+    body { 
+      font-family: Arial, sans-serif; 
+      width: 300px; 
+      background-color: #1a1a2e; 
+      color: #ffffff;
+      padding: 20px;
+    }
+
+    /* Title and subtitle styling */
+    h3 {
+      font-size: 1.4em;
+      color: #e94560;
+      margin-bottom: 5px;
+    }
+
+    h4 {
+      font-size: 1em;
+      color: #aaa;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+    /* Input and button container */
+    .input-container {
+      display: flex;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    /* Input field and add button styling */
+    #inputField, #addButton { 
+      flex: 1; 
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+    }
+
+    #inputField {
+      background-color: #162447; 
+      color: #ffffff;
+    }
+
+    #addButton { 
+      background-color: #1f4068; 
+      color: #e94560; 
+      font-weight: bold; 
+      cursor: pointer;
+      width: 40%; /* Button width relative to input field */
+    }
+
+    /* Styling each tracked website item */
+    .website-item { 
+      background-color: #162447; 
+      padding: 15px; 
+      border-radius: 8px; 
+      margin-top: 15px; 
+      display: flex; 
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Website name and time styling */
+    .website-name { 
+      font-size: 1.1em; 
+      font-weight: bold; 
+      color: #e94560;
+    }
+
+    .time { 
+      font-size: 0.9em; 
+      color: #ffffff; 
+    }
+
+    /* Remove button styling */
+    .remove-button { 
+      color: #e94560; 
+      cursor: pointer; 
+      font-size: 0.9em; 
+    }
+
+    .remove-button:hover {
+      color: #ff7675;
+    }
   </style>
 </head>
 <body>
-  <h3>Track Websites</h3>
-  <input type="text" id="inputField" placeholder="Enter website URL" />
-  <button id="addButton">Add Website</button>
+  <!-- Main title and subtitle -->
+  <h3>Website Tracker</h3>
+  <h4>Add your website here to track it</h4>
+
+  <!-- Input field and add button in a container -->
+  <div class="input-container">
+    <input type="text" id="inputField" placeholder="Enter website URL" />
+    <button id="addButton">Add Website</button>
+  </div>
   
+  <!-- Displaying the tracked websites -->
   <div id="websiteList"></div>
 
   <script src="popup.js"></script>
 </body>
 </html>
-  

@@ -38,9 +38,7 @@ const GET_LOCATIONS = {
 
         let params = req.params.calltarget
 
-        if (params === ""){ res.send("Empty parameters."); return }
 
-        res.sendFile( accessFileFromPath( List[params] ))
     }
 }
 

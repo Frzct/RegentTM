@@ -2,6 +2,12 @@
 
 We have an extension and a website.
 
+The first basic necessities included to run the actual website is node.js and npm. To instsall node.js, follow the following documentation:
+
+https://nodejs.org/en/learn/getting-started/how-to-install-nodejs
+
+NOTE: When you install node.js, you also install npm along with it.
+
 To run the website, type in your terminal:
 
 - npm install --global yarn (Only for if you have npm, else install it by following:
