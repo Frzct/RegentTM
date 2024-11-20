@@ -33,13 +33,6 @@ const GET_LOCATIONS = {
         res.sendFile( accessFileFromPath( List.landing ) )
         
     },
-
-    "/request-call/:calltarget": (req, res) => {
-
-        let params = req.params.calltarget
-
-
-    }
 }
 
 Object.keys(GET_LOCATIONS).forEach((Key) => {
