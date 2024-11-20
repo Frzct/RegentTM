@@ -44,14 +44,10 @@ var interpretation = {
 
                 // console.log(SelfKey, document.getElementById(SelfKey))
                 
-                document.getElementById(SelfKey).addEventListener("click", (ev) => {
-                            //
-
-                    console.log(ev)
+                document.getElementById(SelfKey).addEventListener("click", () => {
                             
                     let Ans = Final_Answers[position]
                             //
-                    console.log(`Key ${SelfKey} clicked`)
 
                     if (Ans && Ans["index"] !== ll){ 
                         document.getElementById(Ans["indexKey"]).innerText = " Not Selected "
@@ -109,7 +105,7 @@ var possible_req_calls = {
             "extra_args": {
                 "choices": [
                     "Who are we*", 
-                    "You are nothing",
+                    "I have no idea either.",
                 ],
                 "correct_answer": 0
             },
@@ -117,14 +113,14 @@ var possible_req_calls = {
 
         {
             "type": "choice",
-            "question": "Who are you? What am I? WHY DO I EXIST?",
+            "question": "Let's start with a simple Biology question: What is the mitochondria?",
             "extra_args": {
                 "choices": [
-                    "You", 
-                    "Me",
-                    "Gas Station.",
+                    "The walls of the cell", 
+                    "The powerhouse of the cell",
+                    "The engine for my horse to run",
                 ],
-                "correct_answer": [0, 1]
+                "correct_answer": 1
             },
         },
 
