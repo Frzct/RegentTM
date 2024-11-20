@@ -4,8 +4,7 @@
   "description": "Our duke experiments on us daily... Send help... We are forced to code this thing for him...",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "build": "node index.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
